@@ -21,6 +21,10 @@ after_script:
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
+cache:
+  directories:
+    - "node_modules"
+
 branches:
   only:
     - hexo
