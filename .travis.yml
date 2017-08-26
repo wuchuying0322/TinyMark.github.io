@@ -1,10 +1,14 @@
 language: node_js
-node_js: v6.11.1
+node_js: Stable
 
 # S: Build Lifecycle
 install:
   - npm i
 
+cache:
+  directories:
+    - "node_modules"
+    
 #before_script:
  # - npm install -g gulp
 
@@ -20,10 +24,6 @@ after_script:
   - git commit -m "Update docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
-
-cache:
-  directories:
-    - "node_modules"
 
 branches:
   only:
