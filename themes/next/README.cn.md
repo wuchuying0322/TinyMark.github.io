@@ -6,7 +6,7 @@
 
 [![Join the chat at https://gitter.im/iissnan/hexo-theme-next](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iissnan/hexo-theme-next?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![NexT Schemes](http://iissnan.com/nexus/next/next-schemes.jpg)
+![NexT Schemes](http://iissnan.com/nexus/next/nexvt-schemes.jpg)
 
 
 ## 浏览器支持 Browser support
