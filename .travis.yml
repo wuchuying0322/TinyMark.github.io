@@ -1,9 +1,9 @@
 language: node_js
-node_js: stable
+node_js: v6.11.1
 
 # S: Build Lifecycle
 install:
-  - npm install
+  - npm i
 
 #before_script:
  # - npm install -g gulp
