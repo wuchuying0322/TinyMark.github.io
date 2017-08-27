@@ -1,6 +1,7 @@
 ---
-title: 使用Hexo+Github搭建博客
-tags: Hexo
+title: 使用 Hexo+Github 搭建博客
+tags: [Hexo,博客]
+date: 2017-08-26
 categories: 奇技淫巧
 ---
 
