@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: TinyMark's Blog
-subtitle:
+title: TinyMark
+subtitle: 👊👊👊
 description: 吾日三省吾身：<br>撒什么娇<br>作什么死<br>装什么逼
 author: TinyMark
 language: zh-Hans
-timezone:
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
