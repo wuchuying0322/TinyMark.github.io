@@ -12,6 +12,9 @@ categories: 知识点总结
     
 * 经典继承：使用ES5中内置的Object.create()方法
 ~~~
+
+<!-- more --> 
+
 ## 1. 混入式继承:
 ~~~js
 var me = {

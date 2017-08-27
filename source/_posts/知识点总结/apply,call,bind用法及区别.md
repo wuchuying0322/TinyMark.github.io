@@ -1,5 +1,5 @@
 ---
-title: apply,call,bind的用法及区别
+title: apply,call,bind 的用法及区别
 tags: JS
 categories: 知识点总结
 ---
@@ -9,6 +9,9 @@ categories: 知识点总结
 func.apply(tag, [arg1, arg2])
 // 改变this，立即执行，参数使用数组传入
 ~~~
+
+<!-- more --> 
+
 # call
 ~~~js
 func.call(tag, arg1, arg2)

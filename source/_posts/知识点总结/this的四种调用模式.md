@@ -13,6 +13,9 @@ var foo = function(){
 // 函数调用模式中：this指的就是window
 foo();
 ~~~
+
+<!-- more --> 
+
 # 2. 对象内部-方法调用模式 
 ~~~ javascript
 var obj = {

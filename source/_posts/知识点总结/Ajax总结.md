@@ -1,7 +1,7 @@
 ---
-title: Ajax
-tags: Ajax
-categories: 面试题
+title: Ajax总结
+tags: [JS,Ajax]
+categories: 知识点总结
 ---
 
 # 1. 什么是Ajax？（异步/同步）
@@ -12,6 +12,9 @@ Ajax技术实现了一个静态页面在不刷新整个的情况与服务器进�
 
 Ajax的核心技术是XMLHttpRequest。
 ~~~
+
+<!-- more --> 
+
 # 2. 实现Ajax请求：
 ~~~js
 // 原生：

@@ -1,9 +1,17 @@
+---
+title: JS中常见报错类型 
+tags: JS
+categories: JS
+---
+
 # JS中常见报错类型：
 
 ## SyntaxError    语法错误
 * Uncaught SyntaxError: Unexpected token {
 
     常见：单词拼写错误、嵌套括号漏写等
+
+<!-- more --> 
 
 ## ReferenceError    引用错误
 * Uncaught ReferenceError: xxx is not defined

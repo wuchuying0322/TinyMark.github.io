@@ -1,7 +1,7 @@
 ---
 title: html标签总结
-tags: 标签
-categories: html
+tags: [html,tag,标签]
+categories: 知识点总结
 ---
 
 
@@ -12,6 +12,9 @@ categories: html
 	<title>文档标题</title>
 	</head>
 	<body>
+
+<!-- more --> 
+
 # 可见文本...
 	</body>
 	</html>

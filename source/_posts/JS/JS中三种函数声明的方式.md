@@ -12,6 +12,8 @@ categories: JS
 		    return n1+n2;
 		};
 
+<!-- more --> 
+
 # 函数表达式（var变量声明）
 ** 又叫函数字面量 方式：**
 

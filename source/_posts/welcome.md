@@ -1,8 +1,3 @@
----
-title: Welcome My Blog!
-tags: HEXO
-categories: 杂项
----
 <center>
 <ul>
 <li style='list-style:none;'>[主页](/)
