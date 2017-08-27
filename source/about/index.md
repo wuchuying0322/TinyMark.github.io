@@ -1,12 +1,13 @@
 ---
 title: 关于我
+date: 2017-03-06
 ---
 
 
 *  1991 / 06
 * 毕业院校 : 东北石油大学
 * 现 居 : 广东 深圳
-* Email : tinymark_bb@163.com
+* Email : bladem@163.com
 
 * [GigHub](https://github.com/TinyMark)
  

@@ -1,7 +1,7 @@
 ---
 title: 使用Hexo+Github搭建博客
 tags: Hexo
-categories: 奇淫巧技
+categories: 奇技淫巧
 ---
 
 # Hexo

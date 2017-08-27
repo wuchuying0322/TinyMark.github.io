@@ -1,3 +1,8 @@
+---
+title: welcome
+tags: welcome
+---
+
 <center>
 <ul>
 <li style='list-style:none;'>[主页](/)
