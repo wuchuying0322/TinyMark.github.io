@@ -1,7 +1,7 @@
 ---
 title: JS中常见报错类型 
 tags: JS
-categories: JS
+categories: JavaScript
 ---
 
 # JS中常见报错类型：

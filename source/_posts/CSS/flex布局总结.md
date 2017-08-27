@@ -1,7 +1,7 @@
 ---
 title: flex布局总结
 tags: flex
-categories: flex
+categories: CSS
 ---
 
 ##### 转载改编自 [阮一峰的网络日志-Flex 布局教程](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)

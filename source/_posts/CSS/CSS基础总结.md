@@ -1,3 +1,9 @@
+---
+title: CSS基础总结
+tags: CSS
+categories: CSS
+---
+
 * CSS选择器有哪些？
 	1. id选择器		(#myid)
 	2. 类选择器		(.myclassname)

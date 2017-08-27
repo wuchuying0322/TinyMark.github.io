@@ -51,7 +51,7 @@ menu:
   archives: /archives/
   tags: /tags/
   # sitemap: /sitemap.xml
-  about: /about/
+  # about: /about/
   commonweal: /404/
 
 # Enable/Disable menu icons.
@@ -63,7 +63,7 @@ menu_icons:
   enable: true
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
-  about: user
+  # about: user
   categories: th
   schedule: calendar
   tags: tags
