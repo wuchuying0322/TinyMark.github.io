@@ -142,4 +142,6 @@ $ git push git@github.com:YourName/YourName.github.io.git hexo
 * 完成后，我们进入 YourName.github.io 搂一眼结果
     ![image](/image/travis_2-5.png)    
 
-> Done!
+* 下次更新的时候，直接往 Github 的 io仓库 hexo 分支中提交代码就行了
+
+> Hooray！It's working！
