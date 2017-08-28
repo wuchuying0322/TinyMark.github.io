@@ -9,6 +9,8 @@ categories: 奇技淫巧
 ## CI 持续集成
 > 持续集成：Continuous Integration，简称CI，意思是，在一个项目中，任何人对代码库的任何改动，都会触发CI服务器自动对项目进行构建，自动运行测试，甚至自动部署到测试环境。
 
+<!-- more --> 
+
 ## Travis CI 是个啥
 [Travis CI](https://travis-ci.org/) 是在线托管的CI服务，用Travis来进行持续集成，不需要自己搭服务器，在网页上点几下就好，用起来更方便。最重要的是，它对开源项目是免费的。
 
@@ -23,11 +25,12 @@ categories: 奇技淫巧
 * 配置好_config.yml文件的deploy
 * hexo d 部署到远端仓库
 
-> 所以我们利用 Travis CI 进行自动部署，每次更新内容的时候，只需要向 GitHub 的 hexo 分支提交代码就行了
+> 所以，我们利用 Travis CI 进行自动部署。
+原理是：我们把源代码放在 io仓库 的 hexo 分支中，再将 hexo分支 交给 Travis 进行托管，这样我们每次更新内容向 io仓库 的 hexo 分支提交的时候，Travis 就会帮我们自动进行构建和部署
 * 选择 Travis 需要托管的 GitHub 仓库
 * 本地配置 .travis.yml 文件
 * 向 GitHub 仓库目标分支提交更新
-* Travis 会自动进行编译部署
+* Travis 会根据配置文件自动进行构建部署
 
 ## 使用步骤
 1. 登陆[Travis CI (https://travis-ci.org/)](https://travis-ci.org/)与Github进行关联
@@ -38,10 +41,10 @@ categories: 奇技淫巧
 ![image](/image/travis_1-3.png)
 3. 设置选项
 ![image](/image/travis_1-4.png)
-> 此时，Travis 已经接管你Github这个仓库里的代码了，一旦线上仓库有变动，Travis就会自动进行编译部署。
+> 此时，Travis 已经接管你Github这个仓库里的代码了，一旦线上仓库有变动，Travis就会自动进行构建部署。
 
 但是现在还有两个问题：
-> 1. 我们需要在 Github 生成密钥交给 Travis ，以便 Travis 编译后进行自动部署
+> 1. 我们需要在 Github 生成密钥交给 Travis ，以便 Travis 构建后进行自动部署
 > 2. 我们还需要在本地配置 .travis.yml 文件，然后再推送到远端仓库才行
 
 4. 在 Github 生成密钥
@@ -136,17 +139,7 @@ $ git push git@github.com:YourName/YourName.github.io.git hexo
 8. 成功构建完成的结果
 ![image](/image/travis_2-4.png)    
 
-* 完成后，我们进入 YourName.github.io 看一看结果
+* 完成后，我们进入 YourName.github.io 搂一眼结果
     ![image](/image/travis_2-5.png)    
 
-
-
-
-
-
-    
-
-    
-
-
-<!-- more --> 
+> Done!
