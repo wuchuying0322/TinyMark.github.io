@@ -82,7 +82,7 @@ categories: 奇技淫巧
 # 总结常用命令
 ~~~
 $ hexo clean 
-// 清空 hexo generate 生成的博客
+// 清空 ( hexo generate ) 生成的博客
 
 $ hexo g （hexo generate） 
 // 生成博客文件
