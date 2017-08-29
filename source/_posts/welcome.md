@@ -10,6 +10,5 @@ date: 2016-10-28
 [标签](/tag/)
 <!-- [关于](/about/) -->
 
-
 My [GitHub](https://github.com/TinyMark)
 </center>
