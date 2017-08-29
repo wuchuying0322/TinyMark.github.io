@@ -22,7 +22,7 @@ categories: 奇技淫巧
 
 # 安装Hexo
 1. 新建文件夹'myBlog' 并进入
-2. 在空文件夹内单击 ‘鼠标右键’，选择 ‘image’
+2. 在空文件夹内单击 ‘鼠标右键’，选择 'Git Bash Here'
 ![image](/image/hexo_3-2.png)
 3.弹出小黑窗 
 ![image](/image/hexo_3-3.png)
