@@ -5,13 +5,6 @@ node_js: stable
 install:
   - npm i
 
-cache:
-  directories:
-    - "node_modules"
-
-#before_script:
- # - npm install -g gulp
-
 script:
   - hexo g
 
@@ -28,6 +21,7 @@ after_script:
 branches:
   only:
     - hexo
+    
 env:
  global:
    - GH_REF: github.com/tinymark/tinymark.github.io.git
