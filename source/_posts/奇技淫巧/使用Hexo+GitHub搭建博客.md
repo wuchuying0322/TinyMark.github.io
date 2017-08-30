@@ -60,7 +60,7 @@ categories: 奇技淫巧
         ![image](/image/hexo_3-4.png)
 
 # 写博客
-    1. 
+    > 把写好的 markdown 文件，存放到 /source/_posts 文件夹 中即可
 
 # 配置 NexT 主题（可选）
 ## Made by [IIssNan](https://github.com/iissnan) @ GitHub
