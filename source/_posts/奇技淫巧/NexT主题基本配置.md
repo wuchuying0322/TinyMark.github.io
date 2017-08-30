@@ -5,7 +5,7 @@ date: 2017-03-07
 categories: 奇技淫巧
 ---
 
-## [NexT主题](http://theme-next.iissnan.com/)
+# [NexT主题](http://theme-next.iissnan.com/)
 ### 下载主题：
 1. 进入你博客目录中，如 'blog' 文件夹中
 2. 在文件夹内单击 ‘鼠标右键’，选择 ‘Git Bash Here’
