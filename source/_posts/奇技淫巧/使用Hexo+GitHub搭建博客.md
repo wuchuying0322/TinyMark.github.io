@@ -66,7 +66,7 @@ categories: 奇技淫巧
 ## Made by [IIssNan](https://github.com/iissnan) @ GitHub
 
 * NexT 主题官方文档： [http://theme-next.iissnan.com/](http://theme-next.iissnan.com/)
-* 具体配置参考： [NexT主题基本配置]()
+* 具体配置参考： [NexT主题基本配置](https://tinymark.github.io/2017/03/06/奇技淫巧/NexT主题基本配置)
 
 # 完成部署GitHub
 > 原理：
