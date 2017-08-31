@@ -122,7 +122,7 @@ categories: 奇技淫巧
     ![image](/image/hexo_2-12.png)                       
 
 ## 2. 使用 hexo 命令部署
-* 此方法需要配置 SSH 密钥来免密提交，SSH 的配置方法参考 [SSH配置方法]()
+* 此方法需要配置 SSH 密钥来免密提交，SSH 的配置方法参考 [SSH配置方法](https://tinymark.github.io/2017/03/06/奇技淫巧/NexT主题基本配置/)
 
 1. 在 blog 文件夹中打开 bash 黑窗，安装部署工具
     ![image](/image/hexo_5-0.png)  
