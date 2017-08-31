@@ -33,6 +33,9 @@ theme: next
 ~~~
 > ![image](/image/hexo_4-3.png)
 
+# 主题设置
+> 官网文档 [NexT/#theme-settings](http://theme-next.iissnan.com/getting-started.html#theme-settings)
+
 # 设置语言
 > 找到 ~/blog/_config.yml 文件
 第10行改为 
@@ -40,9 +43,6 @@ theme: next
 language: zh-Hans
 ~~~
 > ![image](/image/next_1-0.png)
-
-# 主题设置
-> 官网文档 [NexT/#theme-settings](http://theme-next.iissnan.com/getting-started.html#theme-settings)
 
 ## 选择外观
 NexT 主题提供 3 种外观：
@@ -56,6 +56,14 @@ NexT 主题提供 3 种外观：
 放开第74行注释，
 改如下图：
 > ![image](/image/next_1-1.png)
+
+## 设置头像
+> 找到 ~/blog/themes/next/_config.yml 文件
+放开第114行注释，
+改如下图：
+> ![image](/image/next_1-9.png)
+> 路径对应图片更改一下
+> ![image](/image/next_1-10.png)
 
 ## 设置菜单
 1. 改 next 主题 的配置文件
@@ -106,3 +114,17 @@ $ hexo new page "tags"
     > ![image](/image/next_1-7.png)
     博客文件头部 对应的参数
     > ![image](/image/next_1-8.png)    
+
+# 设置侧边栏
+> 找到 ~/blog/_config.yml 文件
+第 6、7、8、9 行，参数改为 
+~~~ 
+title: this is title
+subtitle: this is subtitle
+description: this is description
+author: this is author
+~~~
+改如下图：
+> ![image](/image/next_1-11.png)
+参数对应页面的位置
+> ![image](/image/next_1-12.png)
