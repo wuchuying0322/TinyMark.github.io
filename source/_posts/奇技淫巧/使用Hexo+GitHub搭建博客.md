@@ -1,5 +1,5 @@
 ---
-title: 使用 Hexo+Github 搭建博客
+title: （一）使用 Hexo+Github 搭建博客
 tags: [Hexo,博客]
 date: 2017-03-08
 categories: 奇技淫巧
@@ -60,13 +60,13 @@ categories: 奇技淫巧
         ![image](/image/hexo_3-4.png)
 
 # 写博客
-    > 把写好的 markdown 文件，存放到 /source/_posts 文件夹 中即可
+> 把写好的 markdown 文件，存放到 /source/_posts 文件夹 中即可
 
 # 配置 NexT 主题（可选）
 ## Made by [IIssNan](https://github.com/iissnan) @ GitHub
 
 * NexT 主题官方文档： [http://theme-next.iissnan.com/](http://theme-next.iissnan.com/)
-* 具体配置参考： [NexT主题基本配置](https://tinymark.github.io/2017/03/06/奇技淫巧/NexT主题基本配置)
+* 具体配置参考： [NexT主题基本配置](../NexT主题基本配置)
 
 # 完成部署GitHub
 > 原理：
@@ -166,7 +166,10 @@ categories: 奇技淫巧
     
 6. 在浏览器输入 YourName.github.io 来访问你的博客
     ![image](/image/hexo_2-12.png)  
-    
+
+# 自动部署方案
+> [使用Travis CI自动部署Hexo博客](../使用Travis CI自动部署Hexo博客)
+
 # 总结常用命令
 ~~~
 $ hexo clean 

@@ -1,5 +1,5 @@
 ---
-title: NexT主题基本配置
+title: （二）NexT 主题的基本配置
 tags: [Hexo,博客]
 date: 2017-03-07
 categories: 奇技淫巧

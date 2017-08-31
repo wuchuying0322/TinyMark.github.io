@@ -1,7 +1,7 @@
 ---
-title: 使用 Travis CI 自动部署 Hexo 博客
+title: （三）使用 Travis CI 自动部署 Hexo 博客
 tags: [Travis CI,博客]
-date: 2017-03-08
+date: 2017-03-07
 categories: 奇技淫巧
 ---
 
@@ -75,13 +75,6 @@ node_js: stable
 # S: Build Lifecycle
 install:
   - npm i
-
-cache:
-  directories:
-    - "node_modules"
-
-#before_script:
- # - npm install -g gulp
 
 script:
   - hexo g
