@@ -43,7 +43,7 @@ categories: 奇技淫巧
         > hexo init 初始化完成！
         ![image](/image/hexo_3-3-1.png)   
     3. 输入 npm i ，安装包（如果网速差或报错，建议使用 cnpm ）
-        [cnpm 的使用方法]()
+        [cnpm 的使用方法](https://npm.taobao.org/)
         ~~~
         $ cnpm i     // 根据个人网速情况，可能要等很久
         ~~~
@@ -66,7 +66,7 @@ categories: 奇技淫巧
 ## Made by [IIssNan](https://github.com/iissnan) @ GitHub
 
 * NexT 主题官方文档： [http://theme-next.iissnan.com/](http://theme-next.iissnan.com/)
-* 具体配置参考： [NexT主题基本配置](../NexT主题基本配置)
+* 具体配置参考： [NexT主题基本配置](https://tinymark.github.io/2017/03/06/奇技淫巧/NexT主题基本配置)
 
 # 完成部署GitHub
 > 原理：
@@ -168,7 +168,7 @@ categories: 奇技淫巧
     ![image](/image/hexo_2-12.png)  
 
 # 自动部署方案
-> [使用Travis CI自动部署Hexo博客](../使用Travis CI自动部署Hexo博客)
+> [使用Travis CI自动部署Hexo博客](https://tinymark.github.io/2017/03/06/奇技淫巧/使用Travis CI自动部署Hexo博客)
 
 # 总结常用命令
 ~~~
