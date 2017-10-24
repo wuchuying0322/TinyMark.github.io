@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 *.lnk
+source/_posts/*/*.js
+source/_posts/*/*.ts

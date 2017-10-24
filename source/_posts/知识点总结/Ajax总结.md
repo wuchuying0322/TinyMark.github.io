@@ -26,7 +26,7 @@ Ajax的核心技术是XMLHttpRequest。
 	    if( xhr.readyState == 4 && xhr.status == 200 ){
 			var result=xhr.responseText;
 			//do something...
-		}
+			}
 	    }
 
 	// post请求：
@@ -36,9 +36,9 @@ Ajax的核心技术是XMLHttpRequest。
 	xhr.send('foo=abc&&bar=123');
 	xhr.onreadystatechange = function (){
 	    if( xhr.readyState == 4 && xhr.status == 200 ){
-		var result = xhr.responseText;
-		//do something...
-		}
+			var result = xhr.responseText;
+			//do something...
+			}
 	    }
 
         // 200代表成功
