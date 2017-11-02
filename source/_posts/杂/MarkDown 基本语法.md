@@ -2,7 +2,7 @@
 title: MarkDown 基本语法
 tags: MarkDown
 date: 2017-03-06
-categories: 奇技淫巧
+categories: 杂
 ---
 
 # MarkDown 常用语法

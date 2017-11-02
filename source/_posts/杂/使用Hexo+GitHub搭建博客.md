@@ -2,7 +2,7 @@
 title: （一）使用 Hexo+Github 搭建博客
 tags: [Hexo,博客]
 date: 2017-03-08
-categories: 奇技淫巧
+categories: 杂
 ---
 
 # Hexo介绍

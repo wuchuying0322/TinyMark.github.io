@@ -2,7 +2,7 @@
 title: （二）NexT 主题的基本配置
 tags: [Hexo,博客]
 date: 2017-03-07
-categories: 奇技淫巧
+categories: 杂
 ---
 
 # [NexT主题](http://theme-next.iissnan.com/)

@@ -2,7 +2,7 @@
 title: Git 使用小技巧
 tags: Git
 date: 2017-03-05
-categories: 奇技淫巧
+categories: 杂
 ---
 
 # 利用 批处理(bat)文件 一键推送 Git
