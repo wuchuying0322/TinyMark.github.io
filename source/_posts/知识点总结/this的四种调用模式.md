@@ -39,7 +39,17 @@ p.foo();
 ~~~ 
 # 4. 上下文调用模式，也称借用方法 
 ~~~ js
-call/apply/bind 可以动态改变this的指向
+// call/apply/bind 可以动态改变this的指向
+var x = 100;
+function fun(){
+    console.log(this.x)
+}
+var obj = {};
+obj.x = 200;
+obj.fun = fun;
+
+obj.fun.apply();
+
 // 上下文调用模式中：this指向第一个参数，如果为空指向window
 ~~~ 
 # 5. 总结this的问题 

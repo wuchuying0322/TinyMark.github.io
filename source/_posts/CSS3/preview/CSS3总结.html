@@ -1,0 +1,191 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:CSS3总结</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<p>Css3总结</p>
+<h1 id="-">选择器</h1>
+<blockquote>
+<p>CSS3 新增了许多灵活查找元素的方法，极大的提高了查找元素的效率和精准度。</p>
+<p>CSS3 选择器与 jQuery 中所提供的绝大部分选择器兼容。</p>
+</blockquote>
+<h2 id="-">属性选择器 ([])</h2>
+<ul>
+<li>E[attr]                <blockquote>
+<p>存在attr属性即可</p>
+</blockquote>
+</li>
+<li>E[attr=val]            <blockquote>
+<p>属性值完全等于 val</p>
+</blockquote>
+</li>
+<li>E[attr*=val]            <blockquote>
+<p>属性值里包含 val 字符并且在“任意”位置</p>
+</blockquote>
+</li>
+<li>E[attr^=val]            <blockquote>
+<p>属性值里包含 val 字符并且在“开始”位置</p>
+</blockquote>
+</li>
+<li>E[attr$=val]            <blockquote>
+<p>属性值里包含 val 字符并且在“结束”位置</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="-">伪类选择器 (:)</h2>
+<p>除了:link 、:active 、:visited 、:hover </p>
+<blockquote>
+<p>新增</p>
+</blockquote>
+<ul>
+<li>E:first-child        <blockquote>
+<p>其父元素的第1个子元素</p>
+</blockquote>
+</li>
+<li>E:last-child        <blockquote>
+<p>其父元素的最后1个子元素</p>
+</blockquote>
+</li>
+<li>E:nth-child(n)        <blockquote>
+<p>其父元素的第n个子元素</p>
+</blockquote>
+</li>
+<li>E:nth-last-child(n)        <blockquote>
+<p>其父元素的第n个子元素（倒着数）</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>空伪类</p>
+</blockquote>
+<ul>
+<li>E:empty <blockquote>
+<p>选中没有任何子节点的E元素；（使用不是非常广泛）</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>目标伪类</p>
+</blockquote>
+<ul>
+<li>E:target <blockquote>
+<p>结合锚点进行使用，处于当前锚点的元素会被选中；</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>排除伪类</p>
+</blockquote>
+<ul>
+<li>E:not(selector) <blockquote>
+<p>除selector（任意选择器）外的元素会被选中；</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="-">伪元素 （::）</h2>
+<ul>
+<li>E::first-letter<blockquote>
+<p>文本的第一个单词或字（如中文、日文、韩文等）</p>
+</blockquote>
+</li>
+<li>E::first-line <blockquote>
+<p>文本第一行；</p>
+</blockquote>
+</li>
+<li>E::selection <blockquote>
+<p>可改变选中文本的样式；</p>
+</blockquote>
+</li>
+<li><p>E::before 和 E::after</p>
+<blockquote>
+<p>在E元素内部的开始位置和结束位创建一个元素，该元素为行内元素，且必须要结合content属性使用。</p>
+</blockquote>
+</li>
+<li><p>注1：&quot;:&quot; 与 &quot;::&quot; 在于区分 伪类 和 伪元素</p>
+</li>
+<li>注2：E:after 和 E:before 在 旧版本 中是 伪元素，在高版本浏览器中会被自动识别为E::after 和 E::before ，已做兼容处理</li>
+</ul>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
