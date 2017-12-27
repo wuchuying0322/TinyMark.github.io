@@ -66,7 +66,7 @@ categories: 杂
 ## Made by [IIssNan](https://github.com/iissnan) @ GitHub
 
 * NexT 主题官方文档： [http://theme-next.iissnan.com/](http://theme-next.iissnan.com/)
-* 具体配置参考： [NexT主题基本配置](https://tinymark.github.io/2017/03/06/奇技淫巧/NexT主题基本配置)
+* 具体配置参考： [NexT主题基本配置](https://tinymark.github.io/2017/03/06/杂/NexT主题基本配置)
 
 # 完成部署GitHub
 > 原理：
@@ -122,7 +122,7 @@ categories: 杂
     ![image](/image/hexo_2-12.png)                       
 
 ## 2. 使用 hexo 命令部署
-* 此方法需要配置 SSH 密钥来免密提交，SSH 的配置方法参考 [SSH配置方法](https://tinymark.github.io/2017/03/06/奇技淫巧/NexT主题基本配置/)
+* 此方法需要配置 SSH 密钥来免密提交，SSH 的配置方法参考 [SSH配置方法](https://tinymark.github.io/2017/03/06/杂/NexT主题基本配置/)
 
 1. 在 blog 文件夹中打开 bash 黑窗，安装部署工具
     ![image](/image/hexo_5-0.png)  
@@ -168,7 +168,7 @@ categories: 杂
     ![image](/image/hexo_2-12.png)  
 
 # 自动部署方案
-> [使用Travis CI自动部署Hexo博客](https://tinymark.github.io/2017/03/06/奇技淫巧/使用Travis CI自动部署Hexo博客)
+> [使用Travis CI自动部署Hexo博客](https://tinymark.github.io/2017/03/06/杂/使用Travis%20CI自动部署Hexo博客)
 
 # 总结常用命令
 ~~~
