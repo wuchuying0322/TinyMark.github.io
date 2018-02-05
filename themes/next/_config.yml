@@ -52,7 +52,7 @@ menu:
   tags: /tags/
   # sitemap: /sitemap.xml
   # about: /about/
-  commonweal: /404/
+  # commonweal: /404/
 
 # Enable/Disable menu icons.
 # Icon Mapping:
@@ -69,7 +69,7 @@ menu_icons:
   tags: tags
   archives: archive
   # sitemap: sitemap
-  commonweal: heartbeat
+  # commonweal: heartbeat
 
 
 # ---------------------------------------------------------------
@@ -78,8 +78,8 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+# scheme: Pisces
 # scheme: Gemini
 
 
@@ -146,8 +146,8 @@ toc:
 
 sidebar:
   # Sidebar Position, available value: left | right
-  position: left
-  #position: right
+  # position: left
+  position: right
 
   # Sidebar Display, available value:
   #  - post    expand on posts automatically. Default.
