@@ -1,7 +1,9 @@
 ---
 title: html基础总结
 tags: html
-categories: 知识点总结
+categories: 
+- FrontEnd
+- HTML
 ---
 
 # 1. 行内元素和块级元素的区别？行内块元素的兼容性使用？（IE8 以下）                                           ~~~    

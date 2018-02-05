@@ -1,7 +1,9 @@
 ---
 title: JS中三种函数声明方式及函数变量重名问题
 tags: 函数声明方式
-categories: JavaScript
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 ** keywords：预解析、变量提升、函数提升、初始化 **

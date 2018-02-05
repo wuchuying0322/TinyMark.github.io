@@ -1,7 +1,9 @@
 ---
 title: CSS基础总结
 tags: CSS
-categories: CSS
+categories: 
+- FrontEnd
+- CSS
 ---
 
 * CSS选择器有哪些？

@@ -2,7 +2,9 @@
 title: （三）使用 Travis CI 自动部署 Hexo 博客
 tags: [Travis CI,博客]
 date: 2017-03-07
-categories: 杂
+categories: 
+- 杂
+- 博客
 ---
 
 # 使用 Travis CI 自动部署 Hexo 博客

@@ -1,7 +1,8 @@
 ---
 title: NodeJS入坑
 tags: NodeJS
-categories: NodeJS
+categories: 
+- NodeJS
 ---
 
 # NodeJS 简介

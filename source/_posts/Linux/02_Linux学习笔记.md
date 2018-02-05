@@ -1,7 +1,9 @@
 ---
 title: Linux学习笔记（二）
 tags: Linux
-categories: Linux
+categories: 
+- Linux
+- 学习笔记
 ---
 
 # 常用基础操作命令

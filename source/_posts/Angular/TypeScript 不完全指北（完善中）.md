@@ -1,7 +1,11 @@
 ---
 title: TypeScript 不完全指北
-tags: 框架
-categories: Angular
+tags: 
+- 框架
+- Angular
+categories: 
+- JS框架
+- Angular
 ---
 
 # 什么是 TypeScript

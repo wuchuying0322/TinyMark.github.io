@@ -2,7 +2,9 @@
 title: （一）使用 Hexo+Github 搭建博客
 tags: [Hexo,博客]
 date: 2017-03-08
-categories: 杂
+categories: 
+- 杂
+- 博客
 ---
 
 # Hexo介绍

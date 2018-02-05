@@ -1,7 +1,9 @@
 ---
 title: JS中常见报错类型 
 tags: JS
-categories: JavaScript
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 # JS中常见报错类型：

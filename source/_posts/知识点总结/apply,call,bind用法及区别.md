@@ -1,7 +1,9 @@
 ---
 title: apply,call,bind 的用法及区别
 tags: JS
-categories: 知识点总结
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 # apply

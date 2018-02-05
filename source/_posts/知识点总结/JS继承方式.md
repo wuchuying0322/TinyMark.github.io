@@ -1,7 +1,9 @@
 ---
 title: JS的继承方式
 tags: JS
-categories: 知识点总结
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 # 继承的三种方式：

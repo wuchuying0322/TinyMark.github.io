@@ -1,7 +1,8 @@
 ---
 title: emmet语法简介
 tags: emmet
-categories: html
+categories: 
+- 杂
 ---
 
 Emmet是一个能大幅度提高前端开发效率的一个工具，目前市面上主流编辑器中都有集成（如 vscode,webstrom 等）。

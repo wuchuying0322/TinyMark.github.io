@@ -2,7 +2,9 @@
 title: SSH 配置方法
 tags: SSH
 date: 2017-03-05
-categories: 杂
+categories: 
+- 杂
+- GIT
 ---
 > Git是分布式的代码管理工具，远程的代码管理是基于SSH的，
 所以要使用远程的git则需要SSH的配置。

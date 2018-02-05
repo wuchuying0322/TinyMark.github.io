@@ -1,7 +1,12 @@
 ---
 title: Ajax总结
-tags: [JS,Ajax]
-categories: 知识点总结
+tags: 
+- JS
+- Ajax
+date: 2017/7/23
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 # 1. 什么是Ajax？（异步/同步）

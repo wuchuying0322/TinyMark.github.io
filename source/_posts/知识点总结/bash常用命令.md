@@ -1,7 +1,9 @@
 ---
 title: bash常用命令
 tags: bash
-categories: 知识点总结
+categories: 
+- 杂
+- GIT
 ---
 
 # 基础操作命令

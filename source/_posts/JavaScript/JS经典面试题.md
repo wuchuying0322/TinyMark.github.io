@@ -1,7 +1,9 @@
 ---
 title: JS经典面试题
 tags: 面试题
-categories: JavaScript
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 1. ul中有5个li，点击打印对应的索引:

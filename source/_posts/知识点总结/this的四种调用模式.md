@@ -1,7 +1,9 @@
 ---
 title: this的四种调用模式
 tags: JS
-categories: 知识点总结
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 # 1. 函数直接调用模式 

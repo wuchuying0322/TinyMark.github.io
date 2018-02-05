@@ -1,7 +1,9 @@
 ---
 title: JS经典题（一）
 tags: JS
-categories: 知识点总结
+categories: 
+- FrontEnd
+- JavaScript
 ---
 
 1. 点击列表中的 li 标签，输出对应索引：

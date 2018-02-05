@@ -1,4 +1,4 @@
 ---
 title: 维护中
-date: 2017-01-01
+type: "schedule"
 ---

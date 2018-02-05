@@ -1,3 +1,11 @@
+---
+title: Linux常用指令
+tags: Linux
+categories: 
+- Linux
+- 常用指令
+---
+
 常用指令
 
 ls　　        显示文件或目录

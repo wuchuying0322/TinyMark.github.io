@@ -2,7 +2,9 @@
 title: MarkDown 基本语法
 tags: MarkDown
 date: 2017-03-06
-categories: 杂
+categories: 
+- 杂
+- 其他
 ---
 
 # MarkDown 常用语法

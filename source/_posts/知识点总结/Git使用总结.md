@@ -1,7 +1,9 @@
 ---
 title: Git使用总结
 tags: Git
-categories: 知识点总结
+categories: 
+- 杂
+- GIT
 ---
 
 # Git是什么？

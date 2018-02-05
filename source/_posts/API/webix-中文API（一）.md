@@ -1,7 +1,11 @@
 ---
 title: webix-中文API（一）
-tags: [ webix , API ]
-categories: 译
+tags:
+- webix
+- API
+categories: 
+- 其他
+- 译
 ---
 
 # 总览
