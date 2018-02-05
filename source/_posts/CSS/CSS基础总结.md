@@ -6,12 +6,12 @@ categories: CSS
 
 * CSS选择器有哪些？
 	1. id选择器		(#myid)
-	2. 类选择器		(.myclassname)
+	2. 类选择器			(.myclassname)
 	3. 标签选择器		(div,h1,p)
 	4. 相邻选择器		(h1 + p)
 	5. 子代选择器		(ul > li)
 	6. 后代选择器		(li a)
-	7. 通配符选择器	(*)
+	7. 通配符选择器		(*)
 	8. 属性选择器		(a[rel = "ex"])
 	9. 伪类选择器		(a:hover,li:nth-child)
 	
@@ -60,8 +60,8 @@ categories: CSS
 
 * 属性display 有哪些值？说明他们的作用。
 
-		block			像块级元素一样显示
 		none			默认值，像行内元素一样显示
+		block			像块级元素一样显示
 		inline-block	像行内元素一样显示，但其内容像块级元素一样显示
 		list-item		像块级元素一样显示，并添加样式列表的标记
 		table			此元素会作为块级表格来显示
