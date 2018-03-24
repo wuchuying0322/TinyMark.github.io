@@ -5,6 +5,7 @@ categories:
 - 前端
 - JavaScript
 - 设计模式
+date: 2018-03-24
 ---
 
 # 1 灵活的JavaScript
