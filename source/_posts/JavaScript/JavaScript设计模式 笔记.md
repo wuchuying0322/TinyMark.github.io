@@ -1,11 +1,11 @@
 ---
-title: JavaScript设计模式 笔记（一）
+title: JavaScript设计模式 读书笔记（一）
 tags: 设计模式
 categories: 
 - 前端
 - JavaScript
 - 设计模式
-date: 2018-03-24
+date: 2018-02-24
 ---
 
 # 1 灵活的JavaScript
@@ -114,7 +114,7 @@ var a = new CheckObject();
 a.checkName();
 ~~~
 > 使用 关键字new 来创建
-> 创建的时候会对类的 this 上的属性进行复制，消耗太大
+> 创建的时候会对该类 this 上的属性进行复制，消耗大
 
 ## 1.7  原型
 ~~~ js
@@ -200,8 +200,8 @@ methods.checkName();
 methods.checkEmail();
 methods.checkPassword();
 ~~~
-> 1.给Function.prototype增加一个【添加方法】的方法
-> 2.每次创建函数对象的时候会继承这个方法，就可以给新对象增加方法
+> 1. 给Function.prototype增加一个【添加方法】的方法
+> 2. 每次创建函数对象的时候会继承这个方法，就可以给新对象增加方法
 
 ## 1.10 实现链式添加与链式调用
 ~~~ js
@@ -226,7 +226,7 @@ methods.addMethod("checkName",function(){
 // 使用：
 methods.checkName().checkEmail().checkPassword();
 ~~~
-> 在prototype的addMethod方法中使用return this来实现方法的链式添加
+> 在Function.prototype.addMethod方法中使用return this来实现方法的链式添加
 > 在方法最后使用return this来实现链式调用 
 
 ## 1.11 添加到prototype中
