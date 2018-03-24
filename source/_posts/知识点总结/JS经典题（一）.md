@@ -2,7 +2,7 @@
 title: JS经典题（一）
 tags: JS
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

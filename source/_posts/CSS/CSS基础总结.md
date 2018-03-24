@@ -2,7 +2,7 @@
 title: CSS基础总结
 tags: CSS
 categories: 
-- FrontEnd
+- 前端
 - CSS
 ---
 

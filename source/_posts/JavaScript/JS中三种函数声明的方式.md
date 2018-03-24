@@ -2,7 +2,7 @@
 title: JS中三种函数声明方式及函数变量重名问题
 tags: 函数声明方式
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

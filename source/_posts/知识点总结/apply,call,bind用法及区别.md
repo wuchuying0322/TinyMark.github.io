@@ -3,7 +3,7 @@ title: apply,call,bind 的用法及区别
 tags: JS
 date: 2017/7/12
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

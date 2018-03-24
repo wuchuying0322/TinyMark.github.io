@@ -2,7 +2,7 @@
 title: JS中常见报错类型 
 tags: JS
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

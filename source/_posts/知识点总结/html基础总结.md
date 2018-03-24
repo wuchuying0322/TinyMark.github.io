@@ -2,7 +2,7 @@
 title: html基础总结
 tags: html
 categories: 
-- FrontEnd
+- 前端
 - HTML
 ---
 

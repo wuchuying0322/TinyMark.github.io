@@ -2,7 +2,7 @@
 title: JS经典面试题
 tags: 面试题
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

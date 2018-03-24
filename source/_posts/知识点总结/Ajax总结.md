@@ -5,7 +5,7 @@ tags:
 - Ajax
 date: 2017/7/23
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

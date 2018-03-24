@@ -2,7 +2,7 @@
 title: JS的继承方式
 tags: JS
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 

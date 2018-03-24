@@ -2,7 +2,7 @@
 title: JavaScript设计模式 笔记（一）
 tags: 设计模式
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 - 设计模式
 ---

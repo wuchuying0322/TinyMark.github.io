@@ -2,7 +2,7 @@
 title: html标签总结
 tags: [html,tag,标签]
 categories: 
-- FrontEnd
+- 前端
 - HTML
 ---
 

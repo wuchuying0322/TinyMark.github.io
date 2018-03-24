@@ -2,7 +2,7 @@
 title: flex布局总结
 tags: flex
 categories: 
-- FrontEnd
+- 前端
 - CSS
 ---
 

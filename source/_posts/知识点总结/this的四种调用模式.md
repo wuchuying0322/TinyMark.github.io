@@ -2,7 +2,7 @@
 title: this的四种调用模式
 tags: JS
 categories: 
-- FrontEnd
+- 前端
 - JavaScript
 ---
 
