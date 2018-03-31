@@ -230,6 +230,7 @@ methods.checkName().checkEmail().checkPassword();
 > 在方法最后使用return this来实现链式调用 
 
 ## 1.11 添加到prototype中
+
 ~~~ js
 // 给【原生Function.prototype】增加【添加原型方法】的方法
 Function.prototype.addMethod = function (name,fn) {
@@ -258,3 +259,16 @@ m.checkName().checkEmail().checkPassword();
 > 借助Function.prototype.addMethod来给所有构造函数添加公共方法
 > 当创建一个构造函数的时候，该构造函数就可以使用addMethod方法来给自己的原型对象添加方法（使用return this实现链式添加）
 > 使用【new关键字】实例化出一个新对象时，该对象就会继承我们给构造函数Methods的原型对象添加的方法了
+
+# 2 面向对象编程
+## 2.1 面向对象与面向过程
+> 面向对象编程的特点之一：封装
+## 2.2 封装
+### 2.2.1 创建一个类
+~~~ js
+var Book = function(id,bookname,price){
+    this.id = id;
+    this.bookname = bookname;
+    this.price = price;
+}
+~~~
