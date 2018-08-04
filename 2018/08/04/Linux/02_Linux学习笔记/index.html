@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="常用基础操作命令 &amp;gt; or &amp;gt;&amp;gt; 重定向：  相同点：如果文件不存在，那么就新建   不同点：  &amp;gt; 如果文件之前存在，那么就覆盖 &amp;gt;&amp;gt; 如果文件之前存在，那么就是 追加12345// 将当前目录内容（覆盖）保存到 重定向文件.txt 文件 中$ ls &amp;gt; 重定向文件.txt// 将当前目录内容（追加）保存到 重定向文件.txt 文件 中$ ls &amp;gt;&amp;gt; 重定向文">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习笔记（二）">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/Linux/02_Linux学习笔记/index.html">
+<meta property="og:site_name" content="TinyMark">
+<meta property="og:description" content="常用基础操作命令 &amp;gt; or &amp;gt;&amp;gt; 重定向：  相同点：如果文件不存在，那么就新建   不同点：  &amp;gt; 如果文件之前存在，那么就覆盖 &amp;gt;&amp;gt; 如果文件之前存在，那么就是 追加12345// 将当前目录内容（覆盖）保存到 重定向文件.txt 文件 中$ ls &amp;gt; 重定向文件.txt// 将当前目录内容（追加）保存到 重定向文件.txt 文件 中$ ls &amp;gt;&amp;gt; 重定向文">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-04T20:51:55.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux学习笔记（二）">
+<meta name="twitter:description" content="常用基础操作命令 &amp;gt; or &amp;gt;&amp;gt; 重定向：  相同点：如果文件不存在，那么就新建   不同点：  &amp;gt; 如果文件之前存在，那么就覆盖 &amp;gt;&amp;gt; 如果文件之前存在，那么就是 追加12345// 将当前目录内容（覆盖）保存到 重定向文件.txt 文件 中$ ls &amp;gt; 重定向文件.txt// 将当前目录内容（追加）保存到 重定向文件.txt 文件 中$ ls &amp;gt;&amp;gt; 重定向文">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/Linux/02_Linux学习笔记/"/>
+
+
+
+
+
+  <title>Linux学习笔记（二） | TinyMark</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinyMark</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">👊👊👊</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-navicon"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/Linux/02_Linux学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinyMark">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinyMark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux学习笔记（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T20:51:55+00:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="常用基础操作命令"><a href="#常用基础操作命令" class="headerlink" title="常用基础操作命令"></a>常用基础操作命令</h1><ul>
+<li><p>> or &gt;&gt; 重定向：</p>
+<blockquote>
+<p>相同点：如果文件不存在，那么就新建</p>
+</blockquote>
+<blockquote>
+<p>不同点：</p>
+<ul>
+<li>> 如果文件之前存在，那么就覆盖</li>
+<li>>&gt; 如果文件之前存在，那么就是 追加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 将当前目录内容（覆盖）保存到 重定向文件.txt 文件 中</span><br><span class="line">$ ls &gt; 重定向文件.txt</span><br><span class="line"></span><br><span class="line">// 将当前目录内容（追加）保存到 重定向文件.txt 文件 中</span><br><span class="line">$ ls &gt;&gt; 重定向文件.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>gedit 编辑器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 使用 gedit 编辑器 查看或修改xxx.txt文件</span><br><span class="line">$ gedit xxx.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cat 查看文件的内容（一次性显示所有的内容）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 在终端内显示 xxx.txt 的内容</span><br><span class="line">$ cat xxx.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>more 分屏显示文件的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 在终端内部分屏显示 xxx.txt 的内容</span><br><span class="line">$ more xxx.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常见用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ls / -alh | more </span><br><span class="line">// 先执行ls / -alh 把内容存储到 管道(|)中</span><br><span class="line">// 然后more命令从管道(|)中取数据，然后分页显示</span><br><span class="line"></span><br><span class="line">$ cat a.txt b.txt &gt; c.txt </span><br><span class="line">// 合并文件 a.txt 和 b.txt 存储到 c.txt 中</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>grep 从文件中 搜索内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 从文件中 搜索内容</span><br><span class="line">$ grep</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>find 从某个路径中 搜索文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 从某个路径中 搜索文件</span><br><span class="line">$ find</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="打包与压缩等"><a href="#打包与压缩等" class="headerlink" title="打包与压缩等"></a>打包与压缩等</h1><ul>
+<li><p>常见命令</p>
+<p>  tar     打包</p>
+<p>  gzip    用 gzip 压缩</p>
+<p>  bzip2   用 bzip2 压缩</p>
+</li>
+<li><p>常见选项</p>
+<p>   -c     归档文件</p>
+<p>   -x     压缩文件</p>
+<p>   -z     gzip压缩文件</p>
+<p>   -j     bzip2压缩文件</p>
+<p>   -v     显示压缩或解压缩过程 v(view)</p>
+<p>   -f     使用档名</p>
+</li>
+<li><p>打包与解包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 将 *.txt 打包 成为 xxx.tar</span><br><span class="line">$ tar -cvf xxx.tar  *.txt</span><br><span class="line"></span><br><span class="line">// 将 xxx.tar 解包</span><br><span class="line">$ tar -xvf xxx.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>压缩与解压缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 将 xxx.tar 压缩 成 xxx.tar.gz </span><br><span class="line">$ gzip xxx.tar  </span><br><span class="line"></span><br><span class="line">// 将 xxx.tar.gz 解压缩</span><br><span class="line">$ gzip -d xxx.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>混合操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 将 xxx.txt 打包并用 gzip 压缩</span><br><span class="line">$ tar -zcvf xxx.tar.gz xxx.txt </span><br><span class="line"></span><br><span class="line">// 将 xxx.tar.gz 用 gzip 解压缩并解包</span><br><span class="line">tar -zxvf xxx.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 将 xxx.txt 打包并用 bzip2 压缩</span><br><span class="line">tar -jcvf xxx.tar.bz2 xxx.txt</span><br><span class="line"></span><br><span class="line">// 将 xxx.tar.bz2 用 bzip2 解压缩并解包</span><br><span class="line">tar -jxvf xxx.tar.bz2</span><br></pre></td></tr></table></figure>
+<p>系统管理命令</p>
+<blockquote>
+<p>useradd 添加用户</p>
+</blockquote>
+<blockquote>
+<p>userdel 删除用户</p>
+</blockquote>
+<blockquote>
+<p>su 切换用户</p>
+</blockquote>
+<blockquote>
+<p>exit 退出用户</p>
+</blockquote>
+<blockquote>
+<p>ssh <a href="mailto:python@192.168.106.81" target="_blank" rel="noopener">python@192.168.106.81</a> 远程登录</p>
+</blockquote>
+<blockquote>
+<p>who 查看当前登录的用户</p>
+</blockquote>
+<blockquote>
+<p>whoami 查看当前用户</p>
+</blockquote>
+<blockquote>
+<p>ifconfig 查看网卡信息、修改等</p>
+</blockquote>
+<blockquote>
+<p>sudo 用超级管理员的权限执行命令</p>
+</blockquote>
+<blockquote>
+<p>chmod 修改文件权限</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/04/Linux/Linux命令总结/" rel="next" title="Linux常用指令">
+                <i class="fa fa-chevron-left"></i> Linux常用指令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/04/Linux/01_Linux学习笔记/" rel="prev" title="Linux学习笔记（一）">
+                Linux学习笔记（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TinyMark" />
+          <p class="site-author-name" itemprop="name">TinyMark</p>
+           
+              <p class="site-description motion-element" itemprop="description">吾日三省吾身：<br>撒什么娇<br>作什么死<br>装什么逼</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用基础操作命令"><span class="nav-number">1.</span> <span class="nav-text">常用基础操作命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包与压缩等"><span class="nav-number">2.</span> <span class="nav-text">打包与压缩等</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinyMark</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

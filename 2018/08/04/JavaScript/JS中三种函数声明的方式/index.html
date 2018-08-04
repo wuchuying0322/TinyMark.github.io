@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="函数声明方式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="keywords：预解析、变量提升、函数提升、初始化  函数声明 方式（function关键字声明）function fn1(n1,n2){     return n1+n2; };">
+<meta name="keywords" content="函数声明方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中三种函数声明方式及函数变量重名问题">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/JavaScript/JS中三种函数声明的方式/index.html">
+<meta property="og:site_name" content="TinyMark">
+<meta property="og:description" content="keywords：预解析、变量提升、函数提升、初始化  函数声明 方式（function关键字声明）function fn1(n1,n2){     return n1+n2; };">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-04T20:51:55.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS中三种函数声明方式及函数变量重名问题">
+<meta name="twitter:description" content="keywords：预解析、变量提升、函数提升、初始化  函数声明 方式（function关键字声明）function fn1(n1,n2){     return n1+n2; };">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/JavaScript/JS中三种函数声明的方式/"/>
+
+
+
+
+
+  <title>JS中三种函数声明方式及函数变量重名问题 | TinyMark</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinyMark</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">👊👊👊</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-navicon"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/JavaScript/JS中三种函数声明的方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinyMark">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinyMark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS中三种函数声明方式及函数变量重名问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T20:51:55+00:00">
+                2018-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong> keywords：预解析、变量提升、函数提升、初始化 </strong></p>
+<h1 id="函数声明-方式（function关键字声明）"><a href="#函数声明-方式（function关键字声明）" class="headerlink" title="函数声明 方式（function关键字声明）"></a>函数声明 方式（function关键字声明）</h1><pre><code>function fn1(n1,n2){
+    return n1+n2;
+};
+</code></pre><a id="more"></a> 
+<h1 id="函数表达式（var变量声明）"><a href="#函数表达式（var变量声明）" class="headerlink" title="函数表达式（var变量声明）"></a>函数表达式（var变量声明）</h1><p><strong> 又叫函数字面量 方式：</strong></p>
+<pre><code>var fn2 = function(n1,n2){
+    return n1+n2;
+};
+</code></pre><h1 id="两者的区别："><a href="#两者的区别：" class="headerlink" title="两者的区别："></a><strong>两者的区别：</strong></h1><p><strong>函数声明方式会被JS预解析，然后函数提升，结果是使其在执行任何代码之前可以访问；</strong></p>
+<p><strong>而函数表达式在预解析时，只有变量提升，必须等到解析器执行到它所在的代码行时才会真正被解释执行。</strong></p>
+<ul>
+<li><p><strong>关于JS预解析：</strong></p>
+<p>  在当前作用域下,js运行之前，会把带有var和function关键字的事先声明，并在内存中安排好。然后再从上到下执行JS代码。</p>
+</li>
+<li><p><strong> 变量提升/函数提升(Hoisting)</strong></p>
+<p>  变量提升：JS会把所有在当前作用域通过var声明的变量提升到当前作用域的最顶层进行预解析，然后再从上到下执行JS代码。</p>
+<p>  函数提升：JS会把所有在当前作用域通过 函数声明方式（function关键字声明的）创建的函数的函数体，<br>  提升到当前作用域的最顶层进行预解析（！函数表达式 是var变量声明的，所以属于变量提升，函数体并没有被提升！）</p>
+<p>  <a href="https://tinymark.github.io/2017/03/12/JS/%E4%BD%9C%E7%94%A8%E5%9F%9F-%E9%97%AD%E5%8C%85/" target="_blank" rel="noopener">关于 作用域-闭包 的理解</a></p>
+</li>
+</ul>
+<ul>
+<li><p><strong>例子：</strong></p>
+<pre><code>var foo = 1;
+function fn(){
+    console.log(foo); 
+    var foo = 2;
+    console.log(foo); 
+}
+fn(); 
+&gt; undefined
+&gt; 2
+
+JS中会这样解析：
+function fn(){...};var foo;    // 1、函数提升；变量提升；
+foo = 1;                     // 2、变量赋值
+fn();                         // 3、函数调用，开始执行函数体{...}
+{
+    var foo;                // 4、变量声明提升到函数作用域顶部
+    console.log(foo);        // 5、输出 undefined
+    foo = 2;                // 6、变量赋值
+    console.log(foo);        // 7、输出 2
+}
+</code></pre></li>
+</ul>
+<h1 id="函数构造法，参数必须加-引号-（基本不用）"><a href="#函数构造法，参数必须加-引号-（基本不用）" class="headerlink" title="函数构造法，参数必须加 引号 （基本不用）"></a>函数构造法，参数必须加 引号 （基本不用）</h1><pre><code>var sum3=new Function(&apos;n1&apos;,&apos;n2&apos;,&apos;return n1+n2&apos;);
+    console.log(sum3(2,3));
+</code></pre><p>从技术角度讲，这是一个函数表达式。一般不推荐用这种方法定义函数，因为这种语法会导致解析两次代码（第一次是解析常规ECMAScript代码，第二次是解析传入构造函数中的字符串），从而影响性能。</p>
+<pre><code>var name=&apos;haoxl&apos;;
+function fun(){
+var name=&apos;lili&apos;;
+return new Function(&apos;return name&apos;);    //不能获取局部变量
+}
+console.log(fun()());                // haoxl
+</code></pre><p> Function()构造函数每次执行时都会解析函数主体，并创建一个新的函数对象，所以当在一个循环或频繁执行的函数中调用Function()构造函数效率是非常低的。而函数字面量却不是每次遇到都会重新编译的，用Function()构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。</p>
+<h1 id="总结、重名问题："><a href="#总结、重名问题：" class="headerlink" title="总结、重名问题："></a>总结、重名问题：</h1><h2 id="变量声明提升：变量申明在进入JS代码执行之前就完成了"><a href="#变量声明提升：变量申明在进入JS代码执行之前就完成了" class="headerlink" title="变量声明提升：变量申明在进入JS代码执行之前就完成了"></a>变量声明提升：变量申明在进入JS代码执行之前就完成了</h2><h2 id="两种函数声明方式："><a href="#两种函数声明方式：" class="headerlink" title="两种函数声明方式："></a>两种函数声明方式：</h2><ul>
+<li><p>函数声明方式：函数是JS中的一等公民，会把整个函数体提升到作用域的最前面，所以可以把函数声明放到 <strong> 调用语句 </strong> 的后面；</p>
+</li>
+<li><p>函数表达式：等同变量声明，只会提升函数名变量</p>
+</li>
+</ul>
+<h2 id="变量or函数声明重名：函数声明会覆盖变量声明，但不会覆盖变量初始化"><a href="#变量or函数声明重名：函数声明会覆盖变量声明，但不会覆盖变量初始化" class="headerlink" title="变量or函数声明重名：函数声明会覆盖变量声明，但不会覆盖变量初始化"></a>变量or函数声明重名：函数声明会覆盖变量声明，但不会覆盖变量初始化</h2><ul>
+<li>函数的两种声明方式都会覆盖同名的变量声明！</li>
+<li>但是一旦变量初始化（例如赋值操作），同名变量即会覆盖同名函数！</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/函数声明方式/" rel="tag"># 函数声明方式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/04/JavaScript/JS经典面试题/" rel="next" title="JS经典面试题">
+                <i class="fa fa-chevron-left"></i> JS经典面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/04/CSS3/CSS3总结/" rel="prev" title="CSS3总结">
+                CSS3总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TinyMark" />
+          <p class="site-author-name" itemprop="name">TinyMark</p>
+           
+              <p class="site-description motion-element" itemprop="description">吾日三省吾身：<br>撒什么娇<br>作什么死<br>装什么逼</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数声明-方式（function关键字声明）"><span class="nav-number">1.</span> <span class="nav-text">函数声明 方式（function关键字声明）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数表达式（var变量声明）"><span class="nav-number">2.</span> <span class="nav-text">函数表达式（var变量声明）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两者的区别："><span class="nav-number">3.</span> <span class="nav-text">两者的区别：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数构造法，参数必须加-引号-（基本不用）"><span class="nav-number">4.</span> <span class="nav-text">函数构造法，参数必须加 引号 （基本不用）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结、重名问题："><span class="nav-number">5.</span> <span class="nav-text">总结、重名问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量声明提升：变量申明在进入JS代码执行之前就完成了"><span class="nav-number">5.1.</span> <span class="nav-text">变量声明提升：变量申明在进入JS代码执行之前就完成了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种函数声明方式："><span class="nav-number">5.2.</span> <span class="nav-text">两种函数声明方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量or函数声明重名：函数声明会覆盖变量声明，但不会覆盖变量初始化"><span class="nav-number">5.3.</span> <span class="nav-text">变量or函数声明重名：函数声明会覆盖变量声明，但不会覆盖变量初始化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinyMark</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="博客,Travis CI," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="使用 Travis CI 自动部署 Hexo 博客CI 持续集成 持续集成：Continuous Integration，简称CI，意思是，在一个项目中，任何人对代码库的任何改动，都会触发CI服务器自动对项目进行构建，自动运行测试，甚至自动部署到测试环境。">
+<meta name="keywords" content="博客,Travis CI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（三）使用 Travis CI 自动部署 Hexo 博客">
+<meta property="og:url" content="http://yoursite.com/2017/03/06/杂/使用Travis CI自动部署Hexo博客/index.html">
+<meta property="og:site_name" content="TinyMark">
+<meta property="og:description" content="使用 Travis CI 自动部署 Hexo 博客CI 持续集成 持续集成：Continuous Integration，简称CI，意思是，在一个项目中，任何人对代码库的任何改动，都会触发CI服务器自动对项目进行构建，自动运行测试，甚至自动部署到测试环境。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-0.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-1.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-2.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-3.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-4.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-6.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-7.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-8.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-9.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-10.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-11.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-12.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-13.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-14.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_1-15.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_2-1.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_2-2.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_2-3.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_2-4.png">
+<meta property="og:image" content="http://yoursite.com/image/travis_2-5.png">
+<meta property="og:updated_time" content="2018-08-04T20:51:55.878Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="（三）使用 Travis CI 自动部署 Hexo 博客">
+<meta name="twitter:description" content="使用 Travis CI 自动部署 Hexo 博客CI 持续集成 持续集成：Continuous Integration，简称CI，意思是，在一个项目中，任何人对代码库的任何改动，都会触发CI服务器自动对项目进行构建，自动运行测试，甚至自动部署到测试环境。">
+<meta name="twitter:image" content="http://yoursite.com/image/travis_1-0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.2',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/06/杂/使用Travis CI自动部署Hexo博客/"/>
+
+
+
+
+
+  <title>（三）使用 Travis CI 自动部署 Hexo 博客 | TinyMark</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TinyMark</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">👊👊👊</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-navicon"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder-open"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/06/杂/使用Travis CI自动部署Hexo博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TinyMark">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TinyMark">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">（三）使用 Travis CI 自动部署 Hexo 博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T16:00:00+00:00">
+                2017-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂/" itemprop="url" rel="index">
+                    <span itemprop="name">杂</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂/博客/" itemprop="url" rel="index">
+                    <span itemprop="name">博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="使用-Travis-CI-自动部署-Hexo-博客"><a href="#使用-Travis-CI-自动部署-Hexo-博客" class="headerlink" title="使用 Travis CI 自动部署 Hexo 博客"></a>使用 Travis CI 自动部署 Hexo 博客</h1><h2 id="CI-持续集成"><a href="#CI-持续集成" class="headerlink" title="CI 持续集成"></a>CI 持续集成</h2><blockquote>
+<p>持续集成：Continuous Integration，简称CI，意思是，在一个项目中，任何人对代码库的任何改动，都会触发CI服务器自动对项目进行构建，自动运行测试，甚至自动部署到测试环境。</p>
+</blockquote>
+<a id="more"></a> 
+<h2 id="Travis-CI-是个啥"><a href="#Travis-CI-是个啥" class="headerlink" title="Travis CI 是个啥"></a>Travis CI 是个啥</h2><p><a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI</a> 是在线托管的CI服务，用Travis来进行持续集成，不需要自己搭服务器，在网页上点几下就好，用起来更方便。最重要的是，它对开源项目是免费的。</p>
+<p>参考 <a href="https://www.liaoxuefeng.com/article/0014631488240837e3633d3d180476cb684ba7c10fda6f6000" target="_blank" rel="noopener">使用Travis进行持续集成 —— by廖雪峰老师</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>当我们使用 hexo + Github 搭建博客，每次更新内容的时候，都很麻烦，需要下面几个步骤：</p>
+<ul>
+<li>hexo g 生成博客文件</li>
+<li>进入 public 文件夹，把内容推送到远端 Github 的 xxx.github.io 仓库 master 分支</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>虽然 hexo 集成了部署功能，但是这样无法把我们博客的代码托管到 GitHub 中，代码还是需要存在本地</p>
+<ul>
+<li>配置好_config.yml文件的deploy</li>
+<li>hexo d 部署到远端仓库</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>所以，我们利用 Travis CI 进行自动部署。<br>原理是：我们把源代码放在 io仓库 的 hexo 分支中，再将 hexo分支 交给 Travis 进行托管，这样我们每次更新内容向 io仓库 的 hexo 分支提交的时候，Travis 就会帮我们自动进行构建和部署</p>
+<ul>
+<li>选择 Travis 需要托管的 GitHub 仓库</li>
+<li>本地配置 .travis.yml 文件</li>
+<li>向 GitHub 仓库目标分支提交更新</li>
+<li>Travis 会根据配置文件自动进行构建部署</li>
+</ul>
+</blockquote>
+<h2 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h2><ol>
+<li>登陆<a href="https://travis-ci.org/" target="_blank" rel="noopener">Travis CI (https://travis-ci.org/)</a>与Github进行关联<br><img src="/image/travis_1-0.png" alt="image"><br><img src="/image/travis_1-1.png" alt="image"></li>
+<li>授权 Travis ，托管需要自动部署的仓库<br><img src="/image/travis_1-2.png" alt="image"><br><img src="/image/travis_1-3.png" alt="image"></li>
+<li>设置选项<br><img src="/image/travis_1-4.png" alt="image"><blockquote>
+<p>此时，Travis 已经接管你Github这个仓库里的代码了，一旦线上仓库有变动，Travis就会自动进行构建部署。</p>
+</blockquote>
+</li>
+</ol>
+<p>但是现在还有两个问题：</p>
+<blockquote>
+<ol>
+<li>我们需要在 Github 生成密钥交给 Travis ，以便 Travis 构建后进行自动部署</li>
+<li>我们还需要在本地配置 .travis.yml 文件，然后再推送到远端仓库才行</li>
+</ol>
+</blockquote>
+<ol start="4">
+<li><p>在 Github 生成密钥</p>
+<ol>
+<li>进入 Github 设置<br><img src="/image/travis_1-6.png" alt="image"></li>
+<li>点击 Personal access tokens<br><img src="/image/travis_1-7.png" alt="image"></li>
+<li>新建一个新安全令牌<br><img src="/image/travis_1-8.png" alt="image"></li>
+<li>写上令牌名称，勾选下面所有选项，除了delete_repo<br><img src="/image/travis_1-9.png" alt="image"></li>
+<li>点击复制生成的密钥<br><img src="/image/travis_1-10.png" alt="image"></li>
+<li>回到 Travis 设置选项中，填写密钥<blockquote>
+<p>注意 key 写 GH_TOKEN ，复制密钥，点击 Add<br><img src="/image/travis_1-11.png" alt="image"></p>
+</blockquote>
+</li>
+<li>最后添加的结果<br><img src="/image/travis_1-12.png" alt="image"></li>
+</ol>
+</li>
+<li><p>本地配置 .travis.yml 文件<br>在博客根目录创建一个名为 .travis.yml 的文件<br><img src="/image/travis_1-13.png" alt="image"><br>内容如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span> <span class="string">stable</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># S: Build Lifecycle</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">npm</span> <span class="string">i</span></span><br><span class="line"></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">hexo</span> <span class="string">g</span></span><br><span class="line"></span><br><span class="line"><span class="attr">after_script:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">cd</span> <span class="string">./public</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">init</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">"YourUserName"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">"YourEmail@gmail.com"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">add</span> <span class="string">.</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">commit</span> <span class="bullet">-m</span> <span class="string">"Update docs"</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">git</span> <span class="string">push</span> <span class="bullet">--force</span> <span class="bullet">--quiet</span> <span class="string">"https://$&#123;GH_TOKEN&#125;@$&#123;GH_REF&#125;"</span> <span class="attr">master:master</span></span><br><span class="line"><span class="comment"># E: Build LifeCycle</span></span><br><span class="line"></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line"><span class="comment"># your branches</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">hexo</span></span><br><span class="line"></span><br><span class="line"><span class="attr">env:</span></span><br><span class="line"><span class="attr"> global:</span></span><br><span class="line"><span class="attr">   - GH_REF:</span> <span class="string">github.com/YouName/YouName.github.io.git</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改user.name、user.email、GH_REF</p>
+<blockquote>
+<p>user.name：   你 Github 的 用户名<br>user.email：  你 Github 的 Email<br><img src="/image/travis_1-14.png" alt="image"><br>GH_REF：    你 GitHub io仓库的地址<br><img src="/image/travis_1-15.png" alt="image"></p>
+</blockquote>
+</li>
+<li><p>更新代码到 Github 仓库的 hexo 分支</p>
+<ol>
+<li>进入 /hexo/themes/next 文件夹，删除 .git 文件夹，否则会导致 主git无法管理主题文件</li>
+<li><p>在 hexo 根目录初始化一个新仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<p><img src="/image/travis_2-1.png" alt="image"></p>
+</li>
+<li><p>切换到 hexo 分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hexo</span><br></pre></td></tr></table></figure>
+<p><img src="/image/travis_2-2.png" alt="image">    </p>
+<blockquote>
+<p>提交代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b hexo</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m &apos;first commit&apos;</span><br><span class="line">$ git push git@github.com:YourName/YourName.github.io.git hexo</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>等待 Travis 构建完成<br><img src="/image/travis_2-3.png" alt="image"></p>
+</li>
+<li><p>成功构建完成的结果<br><img src="/image/travis_2-4.png" alt="image">    </p>
+</li>
+</ol>
+<ul>
+<li><p>完成后，我们进入 YourName.github.io 搂一眼结果</p>
+<blockquote>
+<p>Oye!It’s working！<br>  <img src="/image/travis_2-5.png" alt="image">    </p>
+</blockquote>
+</li>
+<li><p>下次更新的时候，直接往 Github 的 io仓库 hexo 分支中提交代码就行了</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博客/" rel="tag"># 博客</a>
+          
+            <a href="/tags/Travis-CI/" rel="tag"># Travis CI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/06/杂/NexT主题基本配置/" rel="next" title="（二）NexT 主题的基本配置">
+                <i class="fa fa-chevron-left"></i> （二）NexT 主题的基本配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/07/杂/使用Hexo+GitHub搭建博客/" rel="prev" title="（一）使用 Hexo+Github 搭建博客">
+                （一）使用 Hexo+Github 搭建博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TinyMark" />
+          <p class="site-author-name" itemprop="name">TinyMark</p>
+           
+              <p class="site-description motion-element" itemprop="description">吾日三省吾身：<br>撒什么娇<br>作什么死<br>装什么逼</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用-Travis-CI-自动部署-Hexo-博客"><span class="nav-number">1.</span> <span class="nav-text">使用 Travis CI 自动部署 Hexo 博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CI-持续集成"><span class="nav-number">1.1.</span> <span class="nav-text">CI 持续集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Travis-CI-是个啥"><span class="nav-number">1.2.</span> <span class="nav-text">Travis CI 是个啥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用步骤"><span class="nav-number">1.4.</span> <span class="nav-text">使用步骤</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TinyMark</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
